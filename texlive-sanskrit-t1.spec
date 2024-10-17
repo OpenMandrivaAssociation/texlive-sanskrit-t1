@@ -3,7 +3,7 @@ Version:	55475
 Release:	2
 Summary:	Type 1 version of 'skt' fonts for Sanskrit
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/sanskrit-t1
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/sanskrit-t1
 License:	lppl
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.doc.r%{version}.tar.xz
