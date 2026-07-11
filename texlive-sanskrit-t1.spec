@@ -1,37 +1,20 @@
-Name:		texlive-sanskrit-t1
-Version:	55475
-Release:	2
-Summary:	Type 1 version of 'skt' fonts for Sanskrit
+%global tl_name sanskrit-t1
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
+Summary:	Type 1 version of skt fonts for Sanskrit
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/sanskrit-t1
-License:	lppl
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/fonts/ps-type1/sanskrit
+License:	lppl1
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/sanskrit-t1.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The sanskrit-t1 font package provides Type 1 version of Charles
-Wikner's skt font series for the Sanskrit language.
+The sanskrit-t1 font package provides Type 1 version of Charles Wikner's
+skt font series for the Sanskrit language.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/fonts/type1/public/sanskrit-t1
-%{_texmfdistdir}/fonts/map/dvips/sanskrit-t1
-%doc %{_texmfdistdir}/doc/fonts/sanskrit-t1
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
